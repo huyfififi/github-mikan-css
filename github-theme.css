@@ -1,0 +1,9 @@
+/* Primer tokens used for GitHub surfaces (from light/dark theme CSS). */
+html {
+  --bgColor-default: #f4d0f7 !important;
+  --bgColor-muted: color-mix(in srgb, #f4d0f7 78%, black) !important;
+  --bgColor-inset: color-mix(in srgb, #f4d0f7 65%, black) !important;
+  --color-canvas-default: #f4d0f7 !important;
+  --color-canvas-subtle: color-mix(in srgb, #f4d0f7 78%, black) !important;
+  --header-bgColor: color-mix(in srgb, #f4d0f7 78%, black) !important;
+}
