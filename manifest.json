@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "GitHub Background Tint",
-  "version": "0.3.1",
-  "description": "Automatically tint GitHub page backgrounds via Primer CSS variables.",
+  "version": "0.3.8",
+  "description": "Tint GitHub surfaces, borders, and primary buttons via Primer CSS variables.",
   "action": {
     "default_popup": "popup.html",
     "default_title": "GitHub Background Tint"
@@ -11,7 +11,9 @@
     {
       "matches": ["https://github.com/*", "https://www.github.com/*"],
       "css": ["github-theme.css"],
-      "run_at": "document_start"
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "css_origin": "user"
     }
   ]
 }

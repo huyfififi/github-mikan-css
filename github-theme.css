@@ -1,9 +1,110 @@
 /* Primer tokens used for GitHub surfaces (from light/dark theme CSS). */
 html {
-  --bgColor-default: #f4d0f7 !important;
-  --bgColor-muted: color-mix(in srgb, #f4d0f7 78%, black) !important;
-  --bgColor-inset: color-mix(in srgb, #f4d0f7 65%, black) !important;
-  --color-canvas-default: #f4d0f7 !important;
-  --color-canvas-subtle: color-mix(in srgb, #f4d0f7 78%, black) !important;
-  --header-bgColor: color-mix(in srgb, #f4d0f7 78%, black) !important;
+  /* Page canvas */
+  --bgColor-default: #fffbf5 !important;
+  --color-canvas-default: #fffbf5 !important;
+
+  /*
+   * Muted shade: author bars (.timeline-comment-header), Box headers, etc.
+   * Default GitHub light value is #f6f8fa via --bgColor-muted.
+   */
+  --bgColor-muted: color-mix(in srgb, #fffbf5 72%, #f7d299) !important;
+  --color-canvas-subtle: color-mix(in srgb, #fffbf5 72%, #f7d299) !important;
+  --page-header-bgColor: color-mix(in srgb, #fffbf5 72%, #f7d299) !important;
+
+  /*
+   * Modern top bar (.AppHeader) uses --AppHeader-bg: var(--bgColor-inset).
+   * Classic header chrome uses --header-bgColor (defaults to near-black even in light).
+   */
+  --bgColor-inset: #f7d299 !important;
+  --header-bgColor: #f7d299 !important;
+  --headerSearch-bgColor: color-mix(in srgb, #f7d299 88%, black) !important;
+
+  /* Current-user / special comment headers keep distinct soft tints */
+  --bgColor-accent-muted: color-mix(in srgb, #fffbf5 65%, #f7d299) !important;
+  --bgColor-attention-muted: color-mix(in srgb, #fffbf5 55%, #e88025) !important;
+
+  /*
+   * Structural borders (comment boxes, diffs, sidebar dividers).
+   * Default light theme uses grey --borderColor-default: #d1d9e0.
+   */
+  --borderColor-default: #de8500 !important;
+  --borderColor-muted: #de8500 !important;
+  --borderColor-emphasis: #de8500 !important;
+  --borderColor-neutral-muted: #de8500 !important;
+  --borderColor-neutral-emphasis: #de8500 !important;
+  --color-border-default: #de8500 !important;
+  --color-border-muted: #de8500 !important;
+  --color-border-subtle: #de8500 !important;
+  --header-borderColor-divider: #de8500 !important;
+
+  /* Primary buttons (e.g. Create pull request) */
+  --button-primary-bgColor-rest: #e88025 !important;
+  --button-primary-bgColor-hover: color-mix(in srgb, #e88025 88%, black) !important;
+  --button-primary-bgColor-active: color-mix(in srgb, #e88025 76%, black) !important;
+  --button-primary-bgColor-disabled: color-mix(in srgb, #e88025 45%, white) !important;
+  --button-primary-borderColor-rest: #e88025 !important;
+  --button-primary-borderColor-hover: color-mix(in srgb, #e88025 88%, black) !important;
+  --button-primary-borderColor-active: color-mix(in srgb, #e88025 76%, black) !important;
+
+  /* Default / outline controls (Reply, Resolve conversation, etc.) */
+  --button-default-borderColor-rest: #de8500 !important;
+  --button-default-borderColor-hover: #de8500 !important;
+  --button-default-borderColor-active: #de8500 !important;
+  --control-borderColor-rest: #de8500 !important;
+  --control-borderColor-hover: #de8500 !important;
+}
+
+/* Ensure the modern global nav picks up the orange even if local vars reassign. */
+.AppHeader,
+.GlobalNav {
+  --AppHeader-bg: #f7d299 !important;
+  background: #f7d299 !important;
+}
+
+/*
+ * Force structural borders. Primer utilities like `.border` set
+ * `border: ... solid var(--borderColor-default) !important`, but some
+ * review UI hard-codes greys (e.g. .inline-comment-form { #dfe2e5 }).
+ * Injected with css_origin "user" so these beat author !important.
+ */
+.Box,
+.border,
+.border-top,
+.border-right,
+.border-bottom,
+.border-left,
+.border-x,
+.border-y,
+.color-border-default,
+.color-border-muted,
+.color-border-subtle,
+.timeline-comment,
+.timeline-comment-group,
+.timeline-comment-header,
+.comment,
+.inline-comment-form,
+.inline-comments,
+.line-comments,
+.review-comment,
+.review-thread-reply,
+.js-inline-comments-container,
+.comment-holder,
+.UnderlineNav,
+.discussion-sidebar-item {
+  border-color: #de8500 !important;
+}
+
+.review-comment .timeline-comment-header,
+.inline-comments .timeline-comment-header,
+.line-comments .timeline-comment-header,
+.review-thread-reply,
+.previewable-comment-form .comment-form-head.tabnav {
+  background-color: color-mix(in srgb, #fffbf5 72%, #f7d299) !important;
+  border-bottom-color: #de8500 !important;
+}
+
+/* Hard-coded grey on inline reply forms */
+.inline-comment-form {
+  border: var(--borderWidth-thin, 1px) solid #de8500 !important;
 }
