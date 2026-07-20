@@ -6,37 +6,37 @@ html {
 
   /*
    * Muted shade: author bars (.timeline-comment-header), Box headers, etc.
-   * Default GitHub light value is #f6f8fa via --bgColor-muted.
+   * Same as top menu for a consistent chrome color.
    */
-  --bgColor-muted: color-mix(in srgb, #fffbf5 72%, #f7d299) !important;
-  --color-canvas-subtle: color-mix(in srgb, #fffbf5 72%, #f7d299) !important;
-  --page-header-bgColor: color-mix(in srgb, #fffbf5 72%, #f7d299) !important;
+  --bgColor-muted: #fae6cd !important;
+  --color-canvas-subtle: #fae6cd !important;
+  --page-header-bgColor: #fae6cd !important;
 
   /*
    * Modern top bar (.AppHeader) uses --AppHeader-bg: var(--bgColor-inset).
    * Classic header chrome uses --header-bgColor (defaults to near-black even in light).
    */
-  --bgColor-inset: #f7d299 !important;
-  --header-bgColor: #f7d299 !important;
-  --headerSearch-bgColor: color-mix(in srgb, #f7d299 88%, black) !important;
+  --bgColor-inset: #fae6cd !important;
+  --header-bgColor: #fae6cd !important;
+  --headerSearch-bgColor: color-mix(in srgb, #fae6cd 88%, black) !important;
 
-  /* Current-user / special comment headers keep distinct soft tints */
-  --bgColor-accent-muted: color-mix(in srgb, #fffbf5 65%, #f7d299) !important;
-  --bgColor-attention-muted: color-mix(in srgb, #fffbf5 55%, #e88025) !important;
+  /* Special comment headers (current-user / attention) match the same shade */
+  --bgColor-accent-muted: #fae6cd !important;
+  --bgColor-attention-muted: #fae6cd !important;
 
   /*
    * Structural borders (comment boxes, diffs, sidebar dividers).
    * Default light theme uses grey --borderColor-default: #d1d9e0.
    */
-  --borderColor-default: #de8500 !important;
-  --borderColor-muted: #de8500 !important;
-  --borderColor-emphasis: #de8500 !important;
-  --borderColor-neutral-muted: #de8500 !important;
-  --borderColor-neutral-emphasis: #de8500 !important;
-  --color-border-default: #de8500 !important;
-  --color-border-muted: #de8500 !important;
-  --color-border-subtle: #de8500 !important;
-  --header-borderColor-divider: #de8500 !important;
+  --borderColor-default: #f5aa82 !important;
+  --borderColor-muted: #f5aa82 !important;
+  --borderColor-emphasis: #f5aa82 !important;
+  --borderColor-neutral-muted: #f5aa82 !important;
+  --borderColor-neutral-emphasis: #f5aa82 !important;
+  --color-border-default: #f5aa82 !important;
+  --color-border-muted: #f5aa82 !important;
+  --color-border-subtle: #f5aa82 !important;
+  --header-borderColor-divider: #f5aa82 !important;
 
   /* Primary buttons (e.g. Create pull request) */
   --button-primary-bgColor-rest: #e88025 !important;
@@ -48,18 +48,18 @@ html {
   --button-primary-borderColor-active: color-mix(in srgb, #e88025 76%, black) !important;
 
   /* Default / outline controls (Reply, Resolve conversation, etc.) */
-  --button-default-borderColor-rest: #de8500 !important;
-  --button-default-borderColor-hover: #de8500 !important;
-  --button-default-borderColor-active: #de8500 !important;
-  --control-borderColor-rest: #de8500 !important;
-  --control-borderColor-hover: #de8500 !important;
+  --button-default-borderColor-rest: #f5aa82 !important;
+  --button-default-borderColor-hover: #f5aa82 !important;
+  --button-default-borderColor-active: #f5aa82 !important;
+  --control-borderColor-rest: #f5aa82 !important;
+  --control-borderColor-hover: #f5aa82 !important;
 }
 
 /* Ensure the modern global nav picks up the orange even if local vars reassign. */
 .AppHeader,
 .GlobalNav {
-  --AppHeader-bg: #f7d299 !important;
-  background: #f7d299 !important;
+  --AppHeader-bg: #fae6cd !important;
+  background: #fae6cd !important;
 }
 
 /*
@@ -92,7 +92,7 @@ html {
 .comment-holder,
 .UnderlineNav,
 .discussion-sidebar-item {
-  border-color: #de8500 !important;
+  border-color: #f5aa82 !important;
 }
 
 .review-comment .timeline-comment-header,
@@ -100,11 +100,11 @@ html {
 .line-comments .timeline-comment-header,
 .review-thread-reply,
 .previewable-comment-form .comment-form-head.tabnav {
-  background-color: color-mix(in srgb, #fffbf5 72%, #f7d299) !important;
-  border-bottom-color: #de8500 !important;
+  background-color: #fae6cd !important;
+  border-bottom-color: #f5aa82 !important;
 }
 
 /* Hard-coded grey on inline reply forms */
 .inline-comment-form {
-  border: var(--borderWidth-thin, 1px) solid #de8500 !important;
+  border: var(--borderWidth-thin, 1px) solid #f5aa82 !important;
 }

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "GitHub Background Tint",
-  "version": "0.3.8",
+  "version": "0.3.13",
   "description": "Tint GitHub surfaces, borders, and primary buttons via Primer CSS variables.",
   "action": {
     "default_popup": "popup.html",
