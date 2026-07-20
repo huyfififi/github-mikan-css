@@ -65,17 +65,18 @@ html {
   --color-fg-accent: #d9510d !important;
 
   /*
-   * Success / “open” greens → button orange (badges, +N, approval icons, diffs).
-   * White check glyphs use --fgColor-onEmphasis / white and stay unchanged.
+   * Success greens restored for check circles / status icons.
+   * Open badge is forced orange below; primary buttons stay --button-primary-*.
+   * Diff addition washes stay peach via muted tokens.
    */
-  --fgColor-success: #e88025 !important;
-  --bgColor-success-emphasis: #e88025 !important;
+  --fgColor-success: #1a7f37 !important;
+  --bgColor-success-emphasis: #1f883d !important;
   --bgColor-success-muted: color-mix(in srgb, #e88025 18%, white) !important;
-  --borderColor-success-emphasis: #e88025 !important;
+  --borderColor-success-emphasis: #1a7f37 !important;
   --borderColor-success-muted: color-mix(in srgb, #e88025 40%, white) !important;
-  --color-success-fg: #e88025 !important;
-  --color-fg-success: #e88025 !important;
-  --color-success-emphasis: #e88025 !important;
+  --color-success-fg: #1a7f37 !important;
+  --color-fg-success: #1a7f37 !important;
+  --color-success-emphasis: #1f883d !important;
   --color-success-muted: color-mix(in srgb, #e88025 18%, white) !important;
   --diffBlob-additionNum-bgColor: color-mix(in srgb, #e88025 28%, white) !important;
   --diffBlob-additionWord-bgColor: color-mix(in srgb, #e88025 28%, white) !important;
@@ -134,4 +135,48 @@ html {
 /* Hard-coded grey on inline reply forms */
 .inline-comment-form {
   border: var(--borderWidth-thin, 1px) solid #f5aa82 !important;
+}
+
+/*
+ * Standalone success checks (sidebar approval, etc.) stay green via
+ * --fgColor-success. Do NOT force every check green — icons inside filled
+ * green circles must remain white or they disappear on the green disc.
+ */
+.color-fg-success,
+.fgColor-success {
+  color: #1a7f37 !important;
+}
+
+.TimelineItem-badge--success,
+.completeness-indicator-success,
+.branch-action-state-clean .branch-action-icon,
+.branch-action-state-merged .branch-action-icon {
+  background-color: #1f883d !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+
+.TimelineItem-badge--success .octicon,
+.TimelineItem-badge--success svg,
+.completeness-indicator-success .octicon,
+.completeness-indicator-success svg,
+.branch-action-state-clean .branch-action-icon .octicon,
+.branch-action-state-clean .branch-action-icon svg,
+.branch-action-state-merged .branch-action-icon .octicon,
+.branch-action-state-merged .branch-action-icon svg {
+  color: #fff !important;
+  fill: #fff !important;
+}
+
+/* Keep the Open pill orange even though success-emphasis is green again. */
+.State--open {
+  background-color: #e88025 !important;
+  border-color: #e88025 !important;
+  color: #fff !important;
+}
+
+.State--open .octicon,
+.State--open svg {
+  color: #fff !important;
+  fill: #fff !important;
 }

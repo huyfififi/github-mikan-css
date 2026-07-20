@@ -37,14 +37,14 @@ const TOKENS = {
   "--borderColor-accent-emphasis": "#d9510d",
   "--color-accent-fg": "#d9510d",
   "--color-fg-accent": "#d9510d",
-  "--fgColor-success": "#e88025",
-  "--bgColor-success-emphasis": "#e88025",
+  "--fgColor-success": "#1a7f37",
+  "--bgColor-success-emphasis": "#1f883d",
   "--bgColor-success-muted": "#f8e4d3",
-  "--borderColor-success-emphasis": "#e88025",
+  "--borderColor-success-emphasis": "#1a7f37",
   "--borderColor-success-muted": "#f0c49a",
-  "--color-success-fg": "#e88025",
-  "--color-fg-success": "#e88025",
-  "--color-success-emphasis": "#e88025",
+  "--color-success-fg": "#1a7f37",
+  "--color-fg-success": "#1a7f37",
+  "--color-success-emphasis": "#1f883d",
   "--color-success-muted": "#f8e4d3",
   "--diffBlob-additionNum-bgColor": "#f3c9a3",
   "--diffBlob-additionWord-bgColor": "#f3c9a3",
@@ -57,8 +57,72 @@ function applyTokens(root = document.documentElement) {
   }
 }
 
-applyTokens();
+const GREEN = "#1f883d";
+const WHITE = "#ffffff";
+const FILLED_SUCCESS_CIRCLE = [
+  ".TimelineItem-badge--success",
+  ".completeness-indicator-success",
+  ".branch-action-state-clean .branch-action-icon",
+  ".branch-action-state-merged .branch-action-icon",
+].join(",");
 
-// GitHub turbo-navigates without full reloads; re-apply after swaps.
-document.addEventListener("turbo:load", () => applyTokens());
-document.addEventListener("pjax:end", () => applyTokens());
+function paintGreenSuccessChecks() {
+  for (const el of document.querySelectorAll(FILLED_SUCCESS_CIRCLE)) {
+    el.style.setProperty("background-color", GREEN, "important");
+    el.style.setProperty("color", WHITE, "important");
+    for (const icon of el.querySelectorAll(".octicon, svg")) {
+      icon.style.setProperty("color", WHITE, "important");
+      icon.style.setProperty("fill", WHITE, "important");
+    }
+  }
+
+  // Standalone filled check-circle icons (not sitting on a green disc).
+  for (const el of document.querySelectorAll(
+    ".octicon-check-circle-fill, .octicon-check-circle",
+  )) {
+    if (
+      el.closest(
+        [
+          ".State--open",
+          ".Button--primary",
+          ".Label--success",
+          ".TimelineItem-badge--success",
+          ".completeness-indicator-success",
+          ".branch-action-icon",
+        ].join(","),
+      )
+    ) {
+      continue;
+    }
+    el.style.setProperty("color", GREEN, "important");
+    el.style.setProperty("fill", GREEN, "important");
+  }
+}
+
+let paintScheduled = false;
+function schedulePaintGreenSuccessChecks() {
+  if (paintScheduled) {
+    return;
+  }
+  paintScheduled = true;
+  requestAnimationFrame(() => {
+    paintScheduled = false;
+    paintGreenSuccessChecks();
+  });
+}
+
+function applyTheme() {
+  applyTokens();
+  paintGreenSuccessChecks();
+}
+
+applyTheme();
+
+document.addEventListener("turbo:load", applyTheme);
+document.addEventListener("pjax:end", applyTheme);
+
+const observer = new MutationObserver(schedulePaintGreenSuccessChecks);
+observer.observe(document.documentElement, {
+  childList: true,
+  subtree: true,
+});

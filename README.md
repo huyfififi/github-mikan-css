@@ -8,7 +8,8 @@ Minimal Chrome extension that automatically tints **github.com** by overriding P
 - Primary buttons: `#e88025` (`--button-primary-bgColor-*`)
 - Borders: `#f5aa82` (`--borderColor-default` and related)
 - Links / accent text: `#d9510d` (`--fgColor-accent`)
-- Success greens (badges, diffs, icons): `#e88025` (white checkmarks unchanged)
+- Success check circles / icons: GitHub green `#1f883d` (Open badge stays `#e88025`)
+- Diff addition washes: soft peach (muted success)
 
 ## How it works
 
