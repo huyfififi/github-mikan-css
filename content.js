@@ -32,6 +32,23 @@ const TOKENS = {
   "--button-default-borderColor-active": "#f5aa82",
   "--control-borderColor-rest": "#f5aa82",
   "--control-borderColor-hover": "#f5aa82",
+  "--fgColor-accent": "#e88025",
+  "--bgColor-accent-emphasis": "#e88025",
+  "--borderColor-accent-emphasis": "#e88025",
+  "--color-accent-fg": "#e88025",
+  "--color-fg-accent": "#e88025",
+  "--fgColor-success": "#e88025",
+  "--bgColor-success-emphasis": "#e88025",
+  "--bgColor-success-muted": "#f8e4d3",
+  "--borderColor-success-emphasis": "#e88025",
+  "--borderColor-success-muted": "#f0c49a",
+  "--color-success-fg": "#e88025",
+  "--color-fg-success": "#e88025",
+  "--color-success-emphasis": "#e88025",
+  "--color-success-muted": "#f8e4d3",
+  "--diffBlob-additionNum-bgColor": "#f3c9a3",
+  "--diffBlob-additionWord-bgColor": "#f3c9a3",
+  "--diffBlob-additionLine-bgColor": "#f9eadc",
 };
 
 function applyTokens(root = document.documentElement) {

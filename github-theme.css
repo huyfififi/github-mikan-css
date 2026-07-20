@@ -53,6 +53,33 @@ html {
   --button-default-borderColor-active: #f5aa82 !important;
   --control-borderColor-rest: #f5aa82 !important;
   --control-borderColor-hover: #f5aa82 !important;
+
+  /*
+   * Links / accent text (usernames, file paths, “assign yourself”, etc.).
+   * Match primary button orange; leave --fgColor-onEmphasis white for checkmarks.
+   */
+  --fgColor-accent: #e88025 !important;
+  --bgColor-accent-emphasis: #e88025 !important;
+  --borderColor-accent-emphasis: #e88025 !important;
+  --color-accent-fg: #e88025 !important;
+  --color-fg-accent: #e88025 !important;
+
+  /*
+   * Success / “open” greens → button orange (badges, +N, approval icons, diffs).
+   * White check glyphs use --fgColor-onEmphasis / white and stay unchanged.
+   */
+  --fgColor-success: #e88025 !important;
+  --bgColor-success-emphasis: #e88025 !important;
+  --bgColor-success-muted: color-mix(in srgb, #e88025 18%, white) !important;
+  --borderColor-success-emphasis: #e88025 !important;
+  --borderColor-success-muted: color-mix(in srgb, #e88025 40%, white) !important;
+  --color-success-fg: #e88025 !important;
+  --color-fg-success: #e88025 !important;
+  --color-success-emphasis: #e88025 !important;
+  --color-success-muted: color-mix(in srgb, #e88025 18%, white) !important;
+  --diffBlob-additionNum-bgColor: color-mix(in srgb, #e88025 28%, white) !important;
+  --diffBlob-additionWord-bgColor: color-mix(in srgb, #e88025 28%, white) !important;
+  --diffBlob-additionLine-bgColor: color-mix(in srgb, #e88025 14%, white) !important;
 }
 
 /* Ensure the modern global nav picks up the orange even if local vars reassign. */
