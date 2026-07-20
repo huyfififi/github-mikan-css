@@ -89,10 +89,10 @@ html {
    * Ramp tilts hard toward the darkest orange so mid/high days read strong.
    */
   --contribution-default-bgColor-0: #fffbf5 !important;
-  --contribution-default-bgColor-1: #e8c5a9 !important;
-  --contribution-default-bgColor-2: #e88025 !important;
-  --contribution-default-bgColor-3: #d9510d !important;
-  --contribution-default-bgColor-4: #8b2e08 !important;
+  --contribution-default-bgColor-1: #f3d4b5 !important;
+  --contribution-default-bgColor-2: #f0a05a !important;
+  --contribution-default-bgColor-3: #e88025 !important;
+  --contribution-default-bgColor-4: #d9510d !important;
   --contribution-default-borderColor-0: #e8c5a966 !important;
   --contribution-default-borderColor-1: #e8c5a966 !important;
   --contribution-default-borderColor-2: #e8c5a966 !important;

@@ -50,10 +50,10 @@ const TOKENS = {
   "--diffBlob-additionWord-bgColor": "#aceebb",
   "--diffBlob-additionLine-bgColor": "#dafbe1",
   "--contribution-default-bgColor-0": "#fffbf5",
-  "--contribution-default-bgColor-1": "#e8c5a9",
-  "--contribution-default-bgColor-2": "#e88025",
-  "--contribution-default-bgColor-3": "#d9510d",
-  "--contribution-default-bgColor-4": "#8b2e08",
+  "--contribution-default-bgColor-1": "#f3d4b5",
+  "--contribution-default-bgColor-2": "#f0a05a",
+  "--contribution-default-bgColor-3": "#e88025",
+  "--contribution-default-bgColor-4": "#d9510d",
   "--contribution-default-borderColor-0": "#e8c5a966",
   "--contribution-default-borderColor-1": "#e8c5a966",
   "--contribution-default-borderColor-2": "#e8c5a966",
@@ -70,7 +70,7 @@ function applyTokens(root = document.documentElement) {
 const GREEN = "#1f883d";
 const WHITE = "#ffffff";
 const LINK = "#d9510d";
-const PEACH_RAMP = ["#e8c5a9", "#e88025", "#d9510d", "#8b2e08"];
+const PEACH_RAMP = ["#f3d4b5", "#f0a05a", "#e88025", "#d9510d"];
 const FILLED_SUCCESS_CIRCLE = [
   ".TimelineItem-badge--success",
   ".completeness-indicator-success",

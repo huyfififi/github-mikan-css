@@ -1,6 +1,6 @@
-# GitHub Background Tint
+# GitHub Mikan CSS
 
-Minimal Chrome extension that automatically tints **github.com** by overriding Primer CSS variables.
+Warm mikan-orange Chrome theme for **github.com** by overriding Primer CSS variables.
 
 - Page background: `#fffbf5` (`--bgColor-default`)
 - Top menu / AppHeader: `#f7ecdf` (`--bgColor-inset`, `--header-bgColor`, `--AppHeader-bg`)
@@ -10,7 +10,7 @@ Minimal Chrome extension that automatically tints **github.com** by overriding P
 - Links / accent text: `#d9510d` (`--fgColor-accent`)
 - Success check circles / icons: GitHub green `#1f883d` (Open badge stays `#e88025`)
 - Diff additions: original GitHub greens (`#dafbe1` / `#aceebb`)
-- Contribution heatmap: stronger peach→dark orange ramp (`#e8c5a9` … `#8b2e08`)
+- Contribution heatmap: lighter peach→orange ramp (`#f3d4b5` … `#d9510d`)
 - Header icons (top right): `#d9510d`
 
 ## How it works
