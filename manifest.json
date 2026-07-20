@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Background Color Changer",
+  "version": "0.1.2",
+  "description": "Change the background color of the current page.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Change background color"
+  },
+  "permissions": ["activeTab", "scripting"]
+}
