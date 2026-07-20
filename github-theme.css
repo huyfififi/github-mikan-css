@@ -1,8 +1,6 @@
 /* Primer tokens used for GitHub surfaces (from light/dark theme CSS). */
 html {
-  /* Page canvas */
-  --bgColor-default: #fffbf5 !important;
-  --color-canvas-default: #fffbf5 !important;
+  /* Page canvas: leave GitHub's default --bgColor-default alone. */
 
   /*
    * Muted shade: author bars (.timeline-comment-header), Box headers, etc.

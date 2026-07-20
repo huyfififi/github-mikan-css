@@ -2,7 +2,7 @@
 
 Warm mikan-orange Chrome theme for **github.com** by overriding Primer CSS variables.
 
-- Page background: `#fffbf5` (`--bgColor-default`)
+- Page background: GitHub default (not overridden)
 - Top menu / AppHeader: `#f7ecdf` (`--bgColor-inset`, `--header-bgColor`, `--AppHeader-bg`)
 - Author bars / muted chrome: `#f7ecdf` (`--bgColor-muted`, same as top menu)
 - Primary buttons: `#e88025` (`--button-primary-bgColor-*`)

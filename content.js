@@ -4,8 +4,6 @@
  * --borderColor-* resolved to our orange from <html> down.
  */
 const TOKENS = {
-  "--bgColor-default": "#fffbf5",
-  "--color-canvas-default": "#fffbf5",
   "--bgColor-muted": "#f7ecdf",
   "--color-canvas-subtle": "#f7ecdf",
   "--page-header-bgColor": "#f7ecdf",
