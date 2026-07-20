@@ -28,15 +28,15 @@ html {
    * Structural borders (comment boxes, diffs, sidebar dividers).
    * Default light theme uses grey --borderColor-default: #d1d9e0.
    */
-  --borderColor-default: #f5aa82 !important;
-  --borderColor-muted: #f5aa82 !important;
-  --borderColor-emphasis: #f5aa82 !important;
-  --borderColor-neutral-muted: #f5aa82 !important;
-  --borderColor-neutral-emphasis: #f5aa82 !important;
-  --color-border-default: #f5aa82 !important;
-  --color-border-muted: #f5aa82 !important;
-  --color-border-subtle: #f5aa82 !important;
-  --header-borderColor-divider: #f5aa82 !important;
+  --borderColor-default: #e8c5a9 !important;
+  --borderColor-muted: #e8c5a9 !important;
+  --borderColor-emphasis: #e8c5a9 !important;
+  --borderColor-neutral-muted: #e8c5a9 !important;
+  --borderColor-neutral-emphasis: #e8c5a9 !important;
+  --color-border-default: #e8c5a9 !important;
+  --color-border-muted: #e8c5a9 !important;
+  --color-border-subtle: #e8c5a9 !important;
+  --header-borderColor-divider: #e8c5a9 !important;
 
   /* Primary buttons (e.g. Create pull request) */
   --button-primary-bgColor-rest: #e88025 !important;
@@ -48,11 +48,11 @@ html {
   --button-primary-borderColor-active: color-mix(in srgb, #e88025 76%, black) !important;
 
   /* Default / outline controls (Reply, Resolve conversation, etc.) */
-  --button-default-borderColor-rest: #f5aa82 !important;
-  --button-default-borderColor-hover: #f5aa82 !important;
-  --button-default-borderColor-active: #f5aa82 !important;
-  --control-borderColor-rest: #f5aa82 !important;
-  --control-borderColor-hover: #f5aa82 !important;
+  --button-default-borderColor-rest: #e8c5a9 !important;
+  --button-default-borderColor-hover: #e8c5a9 !important;
+  --button-default-borderColor-active: #e8c5a9 !important;
+  --control-borderColor-rest: #e8c5a9 !important;
+  --control-borderColor-hover: #e8c5a9 !important;
 
   /*
    * Links / accent text (usernames, file paths, “assign yourself”, etc.).
@@ -78,9 +78,26 @@ html {
   --color-fg-success: #1a7f37 !important;
   --color-success-emphasis: #1f883d !important;
   --color-success-muted: color-mix(in srgb, #e88025 18%, white) !important;
-  --diffBlob-additionNum-bgColor: color-mix(in srgb, #e88025 28%, white) !important;
-  --diffBlob-additionWord-bgColor: color-mix(in srgb, #e88025 28%, white) !important;
-  --diffBlob-additionLine-bgColor: color-mix(in srgb, #e88025 14%, white) !important;
+  /* Original GitHub light greens for code diffs only */
+  --diffBlob-additionNum-bgColor: #aceebb !important;
+  --diffBlob-additionWord-bgColor: #aceebb !important;
+  --diffBlob-additionLine-bgColor: #dafbe1 !important;
+
+  /*
+   * Profile contribution heatmap (calendar squares).
+   * GitHub maps levels 0–4 to --contribution-default-bgColor-*.
+   * Ramp tilts hard toward the darkest orange so mid/high days read strong.
+   */
+  --contribution-default-bgColor-0: #fffbf5 !important;
+  --contribution-default-bgColor-1: #e8c5a9 !important;
+  --contribution-default-bgColor-2: #e88025 !important;
+  --contribution-default-bgColor-3: #d9510d !important;
+  --contribution-default-bgColor-4: #8b2e08 !important;
+  --contribution-default-borderColor-0: #e8c5a966 !important;
+  --contribution-default-borderColor-1: #e8c5a966 !important;
+  --contribution-default-borderColor-2: #e8c5a966 !important;
+  --contribution-default-borderColor-3: #e8c5a966 !important;
+  --contribution-default-borderColor-4: #e8c5a966 !important;
 }
 
 /* Ensure the modern global nav picks up the orange even if local vars reassign. */
@@ -88,6 +105,16 @@ html {
 .GlobalNav {
   --AppHeader-bg: #fae6cd !important;
   background: #fae6cd !important;
+}
+
+/* Top-right header icons (bell, +, PR, issues, etc.) — not the avatar. */
+.AppHeader-globalBar-end > :not(.AppHeader-user) .AppHeader-button,
+.AppHeader-globalBar-end > :not(.AppHeader-user) .AppHeader-button svg,
+.AppHeader-globalBar-end > :not(.AppHeader-user) .octicon,
+.AppHeader-globalBar-end > :not(.AppHeader-user) button svg,
+.AppHeader-globalBar-end > :not(.AppHeader-user) a:not(.AppHeader-user) svg {
+  color: #d9510d !important;
+  fill: currentColor !important;
 }
 
 /*
@@ -120,7 +147,7 @@ html {
 .comment-holder,
 .UnderlineNav,
 .discussion-sidebar-item {
-  border-color: #f5aa82 !important;
+  border-color: #e8c5a9 !important;
 }
 
 .review-comment .timeline-comment-header,
@@ -129,12 +156,12 @@ html {
 .review-thread-reply,
 .previewable-comment-form .comment-form-head.tabnav {
   background-color: #fae6cd !important;
-  border-bottom-color: #f5aa82 !important;
+  border-bottom-color: #e8c5a9 !important;
 }
 
 /* Hard-coded grey on inline reply forms */
 .inline-comment-form {
-  border: var(--borderWidth-thin, 1px) solid #f5aa82 !important;
+  border: var(--borderWidth-thin, 1px) solid #e8c5a9 !important;
 }
 
 /*
