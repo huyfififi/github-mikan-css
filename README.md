@@ -3,8 +3,8 @@
 Minimal Chrome extension that automatically tints **github.com** by overriding Primer CSS variables.
 
 - Page background: `#fffbf5` (`--bgColor-default`)
-- Top menu / AppHeader: `#fae6cd` (`--bgColor-inset`, `--header-bgColor`, `--AppHeader-bg`)
-- Author bars / muted chrome: `#fae6cd` (`--bgColor-muted`, same as top menu)
+- Top menu / AppHeader: `#f7ecdf` (`--bgColor-inset`, `--header-bgColor`, `--AppHeader-bg`)
+- Author bars / muted chrome: `#f7ecdf` (`--bgColor-muted`, same as top menu)
 - Primary buttons: `#e88025` (`--button-primary-bgColor-*`)
 - Borders: `#e8c5a9` (`--borderColor-default` and related)
 - Links / accent text: `#d9510d` (`--fgColor-accent`)

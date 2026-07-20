@@ -8,21 +8,21 @@ html {
    * Muted shade: author bars (.timeline-comment-header), Box headers, etc.
    * Same as top menu for a consistent chrome color.
    */
-  --bgColor-muted: #fae6cd !important;
-  --color-canvas-subtle: #fae6cd !important;
-  --page-header-bgColor: #fae6cd !important;
+  --bgColor-muted: #f7ecdf !important;
+  --color-canvas-subtle: #f7ecdf !important;
+  --page-header-bgColor: #f7ecdf !important;
 
   /*
    * Modern top bar (.AppHeader) uses --AppHeader-bg: var(--bgColor-inset).
    * Classic header chrome uses --header-bgColor (defaults to near-black even in light).
    */
-  --bgColor-inset: #fae6cd !important;
-  --header-bgColor: #fae6cd !important;
-  --headerSearch-bgColor: color-mix(in srgb, #fae6cd 88%, black) !important;
+  --bgColor-inset: #f7ecdf !important;
+  --header-bgColor: #f7ecdf !important;
+  --headerSearch-bgColor: color-mix(in srgb, #f7ecdf 88%, black) !important;
 
   /* Special comment headers (current-user / attention) match the same shade */
-  --bgColor-accent-muted: #fae6cd !important;
-  --bgColor-attention-muted: #fae6cd !important;
+  --bgColor-accent-muted: #f7ecdf !important;
+  --bgColor-attention-muted: #f7ecdf !important;
 
   /*
    * Structural borders (comment boxes, diffs, sidebar dividers).
@@ -103,8 +103,8 @@ html {
 /* Ensure the modern global nav picks up the orange even if local vars reassign. */
 .AppHeader,
 .GlobalNav {
-  --AppHeader-bg: #fae6cd !important;
-  background: #fae6cd !important;
+  --AppHeader-bg: #f7ecdf !important;
+  background: #f7ecdf !important;
 }
 
 /* Top-right header icons (bell, +, PR, issues, etc.) — not the avatar. */
@@ -155,7 +155,7 @@ html {
 .line-comments .timeline-comment-header,
 .review-thread-reply,
 .previewable-comment-form .comment-form-head.tabnav {
-  background-color: #fae6cd !important;
+  background-color: #f7ecdf !important;
   border-bottom-color: #e8c5a9 !important;
 }
 
