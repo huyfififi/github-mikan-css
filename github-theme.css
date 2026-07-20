@@ -56,13 +56,13 @@ html {
 
   /*
    * Links / accent text (usernames, file paths, “assign yourself”, etc.).
-   * Match primary button orange; leave --fgColor-onEmphasis white for checkmarks.
+   * Leave --fgColor-onEmphasis white for checkmarks.
    */
-  --fgColor-accent: #e88025 !important;
-  --bgColor-accent-emphasis: #e88025 !important;
-  --borderColor-accent-emphasis: #e88025 !important;
-  --color-accent-fg: #e88025 !important;
-  --color-fg-accent: #e88025 !important;
+  --fgColor-accent: #d9510d !important;
+  --bgColor-accent-emphasis: #d9510d !important;
+  --borderColor-accent-emphasis: #d9510d !important;
+  --color-accent-fg: #d9510d !important;
+  --color-fg-accent: #d9510d !important;
 
   /*
    * Success / “open” greens → button orange (badges, +N, approval icons, diffs).

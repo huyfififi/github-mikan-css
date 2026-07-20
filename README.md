@@ -7,7 +7,7 @@ Minimal Chrome extension that automatically tints **github.com** by overriding P
 - Author bars / muted chrome: `#fae6cd` (`--bgColor-muted`, same as top menu)
 - Primary buttons: `#e88025` (`--button-primary-bgColor-*`)
 - Borders: `#f5aa82` (`--borderColor-default` and related)
-- Links / accent text: `#e88025` (`--fgColor-accent`)
+- Links / accent text: `#d9510d` (`--fgColor-accent`)
 - Success greens (badges, diffs, icons): `#e88025` (white checkmarks unchanged)
 
 ## How it works
