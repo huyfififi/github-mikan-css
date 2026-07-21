@@ -128,8 +128,32 @@ function parseHexColor(value) {
   };
 }
 
+function parseCssColor(value) {
+  if (!value) {
+    return null;
+  }
+  const raw = value.trim().toLowerCase();
+  const hex = parseHexColor(raw);
+  if (hex) {
+    return hex;
+  }
+
+  const rgb = raw.match(
+    /^rgba?\(\s*([0-9.]+)\s*,\s*([0-9.]+)\s*,\s*([0-9.]+)(?:\s*,\s*([0-9.]+))?\s*\)$/,
+  );
+  if (rgb) {
+    return {
+      r: Number(rgb[1]),
+      g: Number(rgb[2]),
+      b: Number(rgb[3]),
+      a: rgb[4] === undefined ? 1 : Number(rgb[4]),
+    };
+  }
+  return null;
+}
+
 function isGreenishColor(value) {
-  const rgb = parseHexColor(value);
+  const rgb = parseCssColor(value);
   if (!rgb) {
     return false;
   }
@@ -137,47 +161,84 @@ function isGreenishColor(value) {
 }
 
 function greenToPeach(value) {
-  const rgb = parseHexColor(value);
+  const rgb = parseCssColor(value);
   if (!rgb) {
-    return "#e8c5a9";
+    return "rgba(232, 128, 37, 0.35)";
   }
-  const intensity = (rgb.g - Math.min(rgb.r, rgb.b)) / 255;
-  const index = Math.min(
-    PEACH_RAMP.length - 1,
-    Math.max(0, Math.round(intensity * (PEACH_RAMP.length - 1))),
-  );
-  return PEACH_RAMP[index];
+  const alpha = rgb.a === undefined ? 0.35 : Math.max(0.2, Math.min(0.55, rgb.a));
+  // Match primary button orange with the original fill opacity.
+  return `rgba(232, 128, 37, ${alpha})`;
 }
 
 function paintActivityOverviewGraph() {
-  const AXIS_GREEN = "#1a7f37";
+  const MIKAN_FILL = "rgba(232, 128, 37, 0.35)";
+  const MIKAN_SOLID = "#e88025";
+  const SUCCESS_VARS = {
+    "--fgColor-success": MIKAN_SOLID,
+    "--bgColor-success-emphasis": MIKAN_SOLID,
+    "--bgColor-success-muted": "rgba(232, 128, 37, 0.28)",
+    "--borderColor-success-emphasis": MIKAN_SOLID,
+    "--color-success-fg": MIKAN_SOLID,
+    "--color-fg-success": MIKAN_SOLID,
+    "--color-success-emphasis": MIKAN_SOLID,
+    "--color-success-muted": "rgba(232, 128, 37, 0.28)",
+  };
 
-  for (const heading of document.querySelectorAll("h2, h3")) {
-    if (!/activity overview/i.test(heading.textContent || "")) {
-      continue;
+  const containers = document.querySelectorAll(
+    ".activity-overview-box, .js-activity-overview-graph-container",
+  );
+
+  for (const container of containers) {
+    for (const [name, value] of Object.entries(SUCCESS_VARS)) {
+      container.style.setProperty(name, value, "important");
     }
 
-    const root =
-      heading.closest("section, .Box, [class*='Overview'], .Layout-main") ||
-      heading.parentElement;
-    if (!root) {
-      continue;
+    // Percentage labels (Commits / Code review / Issues / PRs).
+    for (const el of container.querySelectorAll(
+      ".color-fg-success, .fgColor-success, [class*='fg-success'], [class*='fgColor-success']",
+    )) {
+      el.style.setProperty("color", MIKAN_SOLID, "important");
+      el.style.setProperty("fill", MIKAN_SOLID, "important");
     }
 
-    for (const el of root.querySelectorAll("polygon, path, circle, rect, line")) {
-      const stroke = (el.getAttribute("stroke") || "").toLowerCase();
-      if (stroke && stroke !== "none" && stroke !== "currentcolor") {
-        // Axes / grid lines: keep original GitHub green.
-        if (isGreenishColor(stroke) || stroke === LINK.toLowerCase() || stroke === "#e88025") {
-          el.setAttribute("stroke", AXIS_GREEN);
-        }
+    for (const el of container.querySelectorAll(
+      "svg polygon, svg path, svg circle, svg line",
+    )) {
+      const attrFill = (el.getAttribute("fill") || "").trim().toLowerCase();
+      const computedFill = getComputedStyle(el).fill;
+      const attrStroke = (el.getAttribute("stroke") || "").trim().toLowerCase();
+      const computedStroke = getComputedStyle(el).stroke;
+
+      // Vertex dots
+      if (el.tagName.toLowerCase() === "circle") {
+        el.style.setProperty("fill", MIKAN_SOLID, "important");
+        el.style.setProperty("stroke", MIKAN_SOLID, "important");
         continue;
       }
 
-      // Only recolor filled radar area polygons that look green.
-      const fill = (el.getAttribute("fill") || "").toLowerCase();
-      if (fill && fill !== "none" && fill !== "currentcolor" && isGreenishColor(fill)) {
-        el.setAttribute("fill", greenToPeach(fill));
+      // Axis / grid / shape outline strokes → solid mikan orange
+      if (
+        (attrStroke && attrStroke !== "none") ||
+        (computedStroke && computedStroke !== "none")
+      ) {
+        el.setAttribute("stroke", MIKAN_SOLID);
+        el.style.setProperty("stroke", MIKAN_SOLID, "important");
+      }
+
+      // Shape fill (radar area)
+      if (attrFill === "none" || computedFill === "none") {
+        continue;
+      }
+
+      if (
+        el.tagName.toLowerCase() === "polygon" ||
+        isGreenishColor(attrFill) ||
+        isGreenishColor(computedFill) ||
+        attrFill === "currentcolor" ||
+        /^rgba?\(/i.test(computedFill)
+      ) {
+        el.setAttribute("fill", MIKAN_FILL);
+        el.style.setProperty("fill", MIKAN_FILL, "important");
       }
     }
   }

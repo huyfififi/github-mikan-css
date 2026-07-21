@@ -205,3 +205,47 @@ html {
   color: #fff !important;
   fill: #fff !important;
 }
+
+/*
+ * Profile "Activity overview" radar (Commits / Code review / Issues / PRs).
+ * That graph uses success tokens for the green fill; re-scope them to mikan
+ * orange here only so checkmarks elsewhere stay green.
+ */
+.activity-overview-box,
+.js-activity-overview-graph-container {
+  --fgColor-success: #e88025 !important;
+  --bgColor-success-emphasis: #e88025 !important;
+  --bgColor-success-muted: rgba(232, 128, 37, 0.28) !important;
+  --borderColor-success-emphasis: #e88025 !important;
+  --color-success-fg: #e88025 !important;
+  --color-fg-success: #e88025 !important;
+  --color-success-emphasis: #e88025 !important;
+  --color-success-muted: rgba(232, 128, 37, 0.28) !important;
+}
+
+.activity-overview-box .color-fg-success,
+.activity-overview-box .fgColor-success,
+.js-activity-overview-graph-container .color-fg-success,
+.js-activity-overview-graph-container .fgColor-success {
+  color: #e88025 !important;
+}
+
+.js-activity-overview-graph-container svg polygon {
+  fill: rgba(232, 128, 37, 0.35) !important;
+  stroke: #e88025 !important;
+}
+
+.js-activity-overview-graph-container svg path[fill]:not([fill="none"]):not([fill="transparent"]) {
+  fill: rgba(232, 128, 37, 0.35) !important;
+  stroke: #e88025 !important;
+}
+
+.js-activity-overview-graph-container svg path[stroke]:not([stroke="none"]),
+.js-activity-overview-graph-container svg line[stroke]:not([stroke="none"]),
+.js-activity-overview-graph-container svg circle[stroke]:not([stroke="none"]) {
+  stroke: #e88025 !important;
+}
+
+.js-activity-overview-graph-container svg circle[fill]:not([fill="none"]) {
+  fill: #e88025 !important;
+}
