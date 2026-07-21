@@ -249,3 +249,42 @@ html {
 .js-activity-overview-graph-container svg circle[fill]:not([fill="none"]) {
   fill: #e88025 !important;
 }
+
+/*
+ * Contribution activity "Created N commits in M repositories" bars.
+ * GitHub paints these with inline contribution greens (#9be9a8…#216e39),
+ * so tokens alone cannot restyle them — override with !important and map
+ * each classic green level onto the mikan heatmap ramp.
+ */
+#js-contribution-activity .Progress-item,
+.contribution-activity .Progress-item {
+  background-color: #e88025 !important;
+}
+
+#js-contribution-activity .Progress-item[style*="#9be9a8"],
+#js-contribution-activity .Progress-item[style*="#9BE9A8"],
+.contribution-activity .Progress-item[style*="#9be9a8"],
+.contribution-activity .Progress-item[style*="#9BE9A8"] {
+  background-color: #f3d4b5 !important;
+}
+
+#js-contribution-activity .Progress-item[style*="#40c463"],
+#js-contribution-activity .Progress-item[style*="#40C463"],
+.contribution-activity .Progress-item[style*="#40c463"],
+.contribution-activity .Progress-item[style*="#40C463"] {
+  background-color: #f0a05a !important;
+}
+
+#js-contribution-activity .Progress-item[style*="#30a14e"],
+#js-contribution-activity .Progress-item[style*="#30A14E"],
+.contribution-activity .Progress-item[style*="#30a14e"],
+.contribution-activity .Progress-item[style*="#30A14E"] {
+  background-color: #e88025 !important;
+}
+
+#js-contribution-activity .Progress-item[style*="#216e39"],
+#js-contribution-activity .Progress-item[style*="#216E39"],
+.contribution-activity .Progress-item[style*="#216e39"],
+.contribution-activity .Progress-item[style*="#216E39"] {
+  background-color: #d9510d !important;
+}

@@ -256,6 +256,54 @@ function paintHeaderIcons() {
   }
 }
 
+/** Map classic contribution greens → mikan heatmap ramp by luminance. */
+function greenBarToMikan(value) {
+  const EXACT = {
+    "#9be9a8": PEACH_RAMP[0],
+    "#40c463": PEACH_RAMP[1],
+    "#30a14e": PEACH_RAMP[2],
+    "#216e39": PEACH_RAMP[3],
+  };
+  const hex = parseHexColor(value);
+  if (hex) {
+    const key = `#${[hex.r, hex.g, hex.b]
+      .map((n) => n.toString(16).padStart(2, "0"))
+      .join("")}`;
+    if (EXACT[key]) {
+      return EXACT[key];
+    }
+  }
+
+  const rgb = parseCssColor(value);
+  if (!rgb || !isGreenishColor(value)) {
+    return null;
+  }
+  const luminance = (0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b) / 255;
+  if (luminance > 0.7) {
+    return PEACH_RAMP[0];
+  }
+  if (luminance > 0.55) {
+    return PEACH_RAMP[1];
+  }
+  if (luminance > 0.4) {
+    return PEACH_RAMP[2];
+  }
+  return PEACH_RAMP[3];
+}
+
+function paintContributionCommitBars() {
+  for (const el of document.querySelectorAll(
+    "#js-contribution-activity .Progress-item, .contribution-activity .Progress-item",
+  )) {
+    const inline = el.style.backgroundColor;
+    const computed = getComputedStyle(el).backgroundColor;
+    const mapped = greenBarToMikan(inline) || greenBarToMikan(computed);
+    if (mapped) {
+      el.style.setProperty("background-color", mapped, "important");
+    }
+  }
+}
+
 let paintScheduled = false;
 function schedulePaintGreenSuccessChecks() {
   if (paintScheduled) {
@@ -266,6 +314,7 @@ function schedulePaintGreenSuccessChecks() {
     paintScheduled = false;
     paintGreenSuccessChecks();
     paintActivityOverviewGraph();
+    paintContributionCommitBars();
     paintHeaderIcons();
   });
 }
@@ -274,6 +323,7 @@ function applyTheme() {
   applyTokens();
   paintGreenSuccessChecks();
   paintActivityOverviewGraph();
+  paintContributionCommitBars();
   paintHeaderIcons();
 }
 
